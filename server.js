@@ -35,7 +35,7 @@ const COL = { DATE: 0, PHONE: 1, STATUS: 2, AI_RESPONSE: 3 };
 
 // ─── System prompt — customise this for your business ─────────────────────────
 const SYSTEM_PROMPT = `
-You are a friendly assistant for [YOUR BUSINESS NAME].
+You are a friendly assistant for [Clawsmedia].
 
 Services & Pricing:
 - [Service 1]: $[Price]
@@ -53,7 +53,7 @@ Instructions:
 - Reply in a warm, concise, professional tone.
 - Your reply MUST be 160 characters or fewer (one SMS).
 - Never make up information not listed above.
-- If unsure, say: "Great question! Call us at [YOUR PHONE] for details."
+- If unsure, say: "Great question! Call us at [+16478702542] for details."
 `.trim();
 
 // ─── Clients ──────────────────────────────────────────────────────────────────
@@ -142,7 +142,7 @@ async function findLatestRowForPhone(phone) {
  * @returns {Promise<string>}
  */
 async function generateAIReply(userMessage) {
-  const model = "gemini-2.0-flash";
+  const model = "gemini-4.1";
   const result = await genai.models.generateContent({
     model,
     config: { systemInstruction: SYSTEM_PROMPT },
